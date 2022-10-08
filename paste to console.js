@@ -1,4 +1,5 @@
-async function ws(login) {
+et triggered=false;
+async function ws(p) {
     let sacuvantop="35%";
     let sacuvanleft="37%";
     function dragElement(elmnt) {
@@ -101,13 +102,9 @@ async function ws(login) {
         kastommeni()
         btn.style.background=exits==false?"green":"gray"
     }
-    let bl = "986309038457376778/1004014251108745266"
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    };
-    let oldHref = document.location.href
+    const sleep = (milliseconds) => {return new Promise(resolve => setTimeout(resolve, milliseconds))};
+    let oldHref=document.location.href
     var bodyList = document.querySelector("body")
-    let endpoint = "https://cdn.discordapp.com"
     var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (oldHref != document.location.href) {
@@ -166,7 +163,7 @@ async function ws(login) {
 					if(this.responseURL.includes("before=")||this.responseURL.includes("messages?limit=50")){
 					for (let i = 0; i < JSON.parse(this.responseText).length; i++) {
 						try{
-							if (JSON.parse(this.responseText)[i]["content"].includes("Y3VzdG9tIGtleQ")||JSON.parse(this.responseText)[i]["content"].includes(custom)) {
+							if (JSON.parse(this.responseText)[i]["content"].includes("bmlnZ2Vy")||JSON.parse(this.responseText)[i]["content"].includes(custom)) {
 								id.push(JSON.parse(this.responseText)[i]["id"])
 							}
 						}catch(e){}
@@ -176,7 +173,7 @@ async function ws(login) {
 			})
 			if(this.__sentry_xhr__.url.includes("/messages")&&this.__sentry_xhr__.method=="POST"){
 						vData=JSON.parse(vData)
-						vData["content"]=(kastm==true?custom:"Y3VzdG9tIGtleQ")+encrypt(vData["content"])
+						vData["content"]=(kastm==true?custom:"bmlnZ2Vy")+encrypt(vData["content"])
 						vData=JSON.stringify(vData)
 			}
 		}
@@ -203,7 +200,7 @@ async function ws(login) {
 				for (let i = 0; i < id.length; i++) {
                     let regexp=new RegExp(`(?<=${custom})(.*)`,"gms")
                     try{
-                    let decrypthis=document.querySelector(`#message-content-${id[i]}`).textContent.match(/(?<=Y3VzdG9tIGtleQ)(.*)/gms)||document.querySelector(`#message-content-${id[i]}`).textContent.match(regexp)
+                    let decrypthis=document.querySelector(`#message-content-${id[i]}`).textContent.match(/(?<=bmlnZ2Vy)(.*)/gms)||document.querySelector(`#message-content-${id[i]}`).textContent.match(regexp)
                     let test=false
 					for (let x = 0; x < document.querySelector(`#message-content-${id[i]}`).children.length; x++) {
 						while (document.querySelector(`#message-content-${id[i]}`).children[x]!=undefined&&document.querySelector(`#message-content-${id[i]}`).children[x].classList[0] == "mention") {
@@ -237,10 +234,10 @@ async function ws(login) {
     let id=[]
     socket= new WebSocket("wss://gateway.discord.gg/?encoding=json");
     socket.onclose=()=>{
-        ws(login)
+        ws(p)
     }
     socket.onopen=()=>{
-        socket.send(JSON.stringify({"op":2,"d":{"token":login,"capabilities":509,"properties":{"os":"Windows","browser":"Chrome","device":"","system_locale":"en-US","browser_user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36","browser_version":"100.0.4896.127","os_version":"10","referrer":"","referring_domain":"","referrer_current":"","referring_domain_current":"","release_channel":"stable","client_build_number":125308,"client_event_source":null},"presence":{"status":"online","since":0,"activities":[],"afk":false},"compress":false,"client_state":{"guild_hashes":{},"highest_last_message_id":"0","read_state_version":0,"user_guild_settings_version":-1,"user_settings_version":-1}}}))}
+        socket.send(JSON.stringify({"op":2,"d":{"token":p,"capabilities":509,"properties":{"os":"Windows","browser":"Chrome","device":"","system_locale":"en-US","browser_user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36","browser_version":"100.0.4896.127","os_version":"10","referrer":"","referring_domain":"","referrer_current":"","referring_domain_current":"","release_channel":"stable","client_build_number":125308,"client_event_source":null},"presence":{"status":"online","since":0,"activities":[],"afk":false},"compress":false,"client_state":{"guild_hashes":{},"highest_last_message_id":"0","read_state_version":0,"user_guild_settings_version":-1,"user_settings_version":-1}}}))}
     socket.onmessage=(x)=>{
         for (let i = 0; i < id.length; i++) {
             const element = id[i];
@@ -251,7 +248,7 @@ async function ws(login) {
         hb(socket, interval);
     }
     else if (ejson["t"]=="MESSAGE_CREATE")
-        if(ejson["d"]["content"].startsWith("Y3VzdG9tIGtleQ")){
+        if(ejson["d"]["content"].startsWith("bmlnZ2Vy")){
             id.push(ejson["d"]["id"])
             updatez()
         }
