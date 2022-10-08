@@ -1,4 +1,4 @@
-et triggered=false;
+let triggered=false;
 async function ws(p) {
     let sacuvantop="35%";
     let sacuvanleft="37%";
