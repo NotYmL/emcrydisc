@@ -1,6 +1,6 @@
 # VanyEnc
 
-VanyEnc is a post-quantum cryptography integration for Discord DMs. It uses Ring-LWE key exchange and AES-256-GCM symmetric encryption to secure your direct messages. The project is split into a Chrome/Chromium browser extension and a Python loader that injects the script directly into the desktop Discord client via remote debugging.
+VanyEnc Quantum is a post-quantum cryptography integration for Discord DMs. It uses Ring-LWE key exchange and AES-256-GCM symmetric encryption to secure your direct messages. The project is split into a Chrome/Chromium browser extension and a Python loader that injects the script directly into the desktop Discord client via remote debugging.
 
 <div id="header" align="center">
   <img src="images/general.png" width="240">
